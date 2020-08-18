@@ -4,6 +4,7 @@ Scrapped data is used to ansfer simple questions of the user.
 Scraping is executed during the program run.
 
 ## Libraries (for now)
-1.Request
-2.BS4
+1. Request
+2. BS4
+3. Selenium
 
