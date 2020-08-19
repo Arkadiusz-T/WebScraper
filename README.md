@@ -10,4 +10,8 @@
 3. Selenium
 4. Time
 
-## ChromeWebDriver in necessary requirement
+### ChromeWebDriver in necessary requirement
+
+## Features (for now)
+* scrap list of all characters in the game
+* view history of a given champion
