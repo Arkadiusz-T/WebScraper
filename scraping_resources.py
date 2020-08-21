@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import time
 
 def download_list_of_characters():
@@ -15,7 +16,10 @@ def download_list_of_characters():
 def download_history_of_a_character_in_paragraphs(character_name):
     character_name = character_name.lower()
     url_with_character_history = 'https://universe.leagueoflegends.com/en_US/story/champion/'+character_name+'/'
-    driver = webdriver.Chrome('D:\chrome-webdriver\chromedriver.exe')
+    path_to_driver = r'D:\chrome-webdriver\chromedriver.exe'
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(path_to_driver, chrome_options=chrome_options)
     driver.get(url_with_character_history)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
     time.sleep(3)
