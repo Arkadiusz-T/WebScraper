@@ -35,9 +35,10 @@ if __name__ == '__main__':
             print('------------------------------------')
 
         if chosen_option == '4':
-            winrate_raport = scrapo.generate_winrate_raport()
+            win_rate_report = scrapo.generate_winrate_raport()
+            print('Still in development')
+            print(win_rate_report)
             print('------------------------------------')
-            print('in development')
 
         if chosen_option == 'exit':
             keep_script_alive_for_next_iteration = False

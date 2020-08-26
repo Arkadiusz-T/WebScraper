@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
+from winrate_raport import WinRateReport
 
 class Scrappo():
 
@@ -81,6 +82,8 @@ class Scrappo():
         print("Counters for champion: {} \nLane: {}".format(name_of_a_champion_to_counter, lane_prediction.text))
         counters_web_elements = driver.find_elements_by_class_name('champion-stats-header-matchup__table__champion')
         counters_text = [x.text for x in counters_web_elements]
+        driver.close()
+        driver.quit()
         return ', '.join(counters_text)
 
     def generate_winrate_raport(self):
@@ -88,4 +91,23 @@ class Scrappo():
             get 5 best champions for each role
             :return: dictionary with role name as keys and values as champion names
         """
-        pass
+        print('scraping in process...')
+        url_with_winrates = 'https://champion.gg/statistics/#?sortBy=general.winPercent&order=descend'
+        path_to_driver = r'D:\chrome-webdriver\chromedriver.exe'
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        driver = webdriver.Chrome(path_to_driver, chrome_options=chrome_options)
+        driver.get(url_with_winrates)
+        # driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+        # time.sleep(1)
+        parsed_website = BeautifulSoup(driver.page_source, 'html.parser')
+        elements_with_names_sorted_by_winrate = parsed_website.find_all(class_='stat-champ-title ng-binding')
+        print('-----------------------------')
+        names_sorted_by_winrate = [x.text for x in elements_with_names_sorted_by_winrate]
+        web_elements_with_winrates_sorted = parsed_website.find_all(class_='ng-binding top-half')
+        winrates_sorted = [x.text for x in web_elements_with_winrates_sorted]
+        web_elements_with_role_sorted = parsed_website.find_all(class_='stats-role-title ng-binding')
+        role_sorted = [x.text for x in web_elements_with_role_sorted]
+        driver.close()
+        driver.quit()
+        return 'Winrates: {} \nChampions: {} \nRoles: {}'.format(winrates_sorted, names_sorted_by_winrate, role_sorted)
