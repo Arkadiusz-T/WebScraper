@@ -35,9 +35,11 @@ if __name__ == '__main__':
             print('------------------------------------')
 
         if chosen_option == '4':
-            win_rate_report = scrapo.generate_winrate_raport()
-            print('Still in development')
-            print(win_rate_report)
+            print('How much options to print for each role?')
+            n_of_best_choises_for_each_role = int(input())
+            scrapo.generate_winrate_raport(n_of_best_choises_for_each_role)
+            # win_rate_report = scrapo.generate_winrate_raport(n_of_best_choises_for_each_role)
+            # print(win_rate_report)
             print('------------------------------------')
 
         if chosen_option == 'exit':

@@ -86,7 +86,7 @@ class Scrappo():
         driver.quit()
         return ', '.join(counters_text)
 
-    def generate_winrate_raport(self):
+    def generate_winrate_raport(self, n_of_best_choises_for_each_role):
         """
             get 5 best champions for each role
             :return: dictionary with role name as keys and values as champion names
@@ -110,4 +110,5 @@ class Scrappo():
         role_sorted = [x.text for x in web_elements_with_role_sorted]
         driver.close()
         driver.quit()
-        return 'Winrates: {} \nChampions: {} \nRoles: {}'.format(winrates_sorted, names_sorted_by_winrate, role_sorted)
+        report = WinRateReport(names_sorted_by_winrate, winrates_sorted, role_sorted, n_of_best_choises_for_each_role)
+        print(report)
