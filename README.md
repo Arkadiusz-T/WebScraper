@@ -1,17 +1,17 @@
-# ScraperForFun (in development)
-* This project is conducted to further develop programing skills of its owner. 
-* Scrapped data is used to answer simple questions of the user. 
-* Scraping is executed during the program run.
-* Scraped data is used to entertain user with stories and provide enforcement in decision making.
+# ScraperForFun
+This project was created to bring user entertaining stories 
+about characters from lol universe and provide enforcement in decision making
 
-## Libraries (for now)
+## Libraries
 1. Request
 2. BS4
 3. Selenium
 4. Time
 
-### ChromeWebDriver in necessary requirement
+! ChromeWebDriver in necessary requirement
 
-## Features (for now)
+## Features
 * scrap list of all characters in the game
 * view history of a given champion
+* see counters to a given champion
+* see best champions for a given role

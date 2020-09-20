@@ -98,8 +98,6 @@ class Scrappo():
         chrome_options.add_argument("--headless")
         driver = webdriver.Chrome(path_to_driver, chrome_options=chrome_options)
         driver.get(url_with_winrates)
-        # driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-        # time.sleep(1)
         parsed_website = BeautifulSoup(driver.page_source, 'html.parser')
         elements_with_names_sorted_by_winrate = parsed_website.find_all(class_='stat-champ-title ng-binding')
         print('-----------------------------')

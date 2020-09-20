@@ -36,10 +36,13 @@ if __name__ == '__main__':
 
         if chosen_option == '4':
             print('How much options to print for each role?')
-            n_of_best_choises_for_each_role = int(input())
+            n_of_best_choises_for_each_role = input()
+            try:
+                n_of_best_choises_for_each_role = int(n_of_best_choises_for_each_role)
+            except ValueError:
+                n_of_best_choises_for_each_role = 5
+                print('Invalid input 5 choises per role will be displayed')
             scrapo.generate_winrate_raport(n_of_best_choises_for_each_role)
-            # win_rate_report = scrapo.generate_winrate_raport(n_of_best_choises_for_each_role)
-            # print(win_rate_report)
             print('------------------------------------')
 
         if chosen_option == 'exit':
