@@ -1,6 +1,6 @@
 # ScraperForFun
 This project was created to bring user entertaining stories 
-about characters from lol universe and provide enforcement in decision making
+about characters from LeagueOfLegends universe and provide enforcement in decision making during the game
 
 ## Libraries
 1. Request
